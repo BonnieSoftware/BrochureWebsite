@@ -73,12 +73,14 @@ $(function () {
         });
     });
 
-    $(".learn-more-btn").on("click", function (e) {
+    $(".send").on("click", function (e) {
         //TODO: Display spinner over form when posting back
 
         e.preventDefault();
 
+        // If there are errors do nothing.
         if ($(".validation-message:not(:empty)").length > 0) {
+            console.log("form has errors");
             return;
         }
 
@@ -90,8 +92,11 @@ $(function () {
             contentType: "application/json",
             data: getFormData(),
             success: function (data) {
-                //TODO: Hide form and show thank you message.
-                console.log(data);
+                $(".validation-message").empty();
+                $(".contact-form input").val("");
+                $(".contact-form textarea").val("");
+                $(".pricing-title h2").empty().append("Thank you for contacting us");
+                $(".pricing-title p").empty().append("Your message has been sent. Where required we will contact you back as soon as possible.");
             },
             error: function (xhr, status, error) {
                 var enquiryViewModel = JSON.parse(xhr.responseText);
