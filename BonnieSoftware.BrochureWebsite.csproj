@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="docs\css\bootstrap.min.css" />
+    <Content Include="docs\css\owl.carousel.min.css" />
+    <Content Include="docs\css\owl.theme.default.min.css" />
+    <Content Include="docs\css\style.css" />
+    <Content Include="docs\css\themify-icons.css" />
+    <Content Include="docs\fonts\themify.eot" />
+    <Content Include="docs\fonts\themify.svg" />
+    <Content Include="docs\fonts\themify.ttf" />
+    <Content Include="docs\fonts\themify.woff" />
+    <Content Include="docs\images\about-2.svg" />
+    <Content Include="docs\images\banner-2.svg" />
+    <Content Include="docs\images\blog\blog-1.jpg" />
+    <Content Include="docs\images\blog\blog-2.jpg" />
+    <Content Include="docs\images\blog\blog-3.jpg" />
+    <Content Include="docs\images\contact.svg" />
+    <Content Include="docs\images\fav.png" />
+    <Content Include="docs\images\footer.svg" />
+    <Content Include="docs\images\header-bg.svg" />
+    <Content Include="docs\images\logo-white.svg" />
+    <Content Include="docs\images\logo.svg" />
+    <Content Include="docs\images\pricing\car.png" />
+    <Content Include="docs\images\pricing\cycle.png" />
+    <Content Include="docs\images\pricing\scooter.png" />
+    <Content Include="docs\images\service-bg.svg" />
+    <Content Include="docs\images\testi-1.svg" />
+    <Content Include="docs\images\testi-2.svg" />
+    <Content Include="docs\images\testi-3.svg" />
+    <Content Include="docs\index.html" />
+    <Content Include="docs\js\bootstrap.min.js" />
+    <Content Include="docs\js\custom.js" />
+    <Content Include="docs\js\jquery.min.js" />
+    <Content Include="docs\js\owl.carousel.js" />
+    <Content Include="docs\js\popper.min.js" />
+    <Content Include="docs\js\smoothscroll.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="docs\" />
+  </ItemGroup>
+
+</Project>
