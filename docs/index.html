@@ -297,28 +297,27 @@
 
                         <div class="form-group">
                             <label>Name</label>
-                            <input name="extra_Name" type="text" class="name form-control">
-                            <span class="validation-message validation-for-name text-danger"></span>
+                            <input name="extra_Name" type="text" data-type="free-text" class="name form-control">
+                            <span class="validation-message validation-for-extra_Name text-danger" data-friendly-name="your name"></span>
                         </div>
                         <div class="form-group">
-                            <label>Company</label>
+                            <label>Company (optional)</label>
                             <input name="extra_Company" type="text" class="company form-control">
-                            <span class="validation-message validation-for-company text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label>Phone</label>
-                            <input name="extra_Phone" type="tel" class="phone form-control">
-                            <span class="validation-message validation-for-phone text-danger"></span>
+                            <label>Phone number</label>
+                            <input name="extra_Phone" type="tel" data-type="phone" class="phone form-control">
+                            <span class="validation-message validation-for-extra_Phone text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
-                            <input name="extra_Email" type="email" class="email form-control">
-                            <span class="validation-message validation-for-email text-danger"></span>
+                            <label>Email address</label>
+                            <input name="extra_Email" type="email" data-type="email" class="email form-control">
+                            <span class="validation-message validation-for-extra_Email text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label>Message</label>
-                            <textarea name="text" class="message form-control" rows="3"></textarea>
-                            <span class="validation-message validation-for-message text-danger"></span>
+                            <textarea name="text" data-type="free-text" class="message form-control" rows="3"></textarea>
+                            <span class="validation-message validation-for-text text-danger" data-friendly-name="some information in regards to your enquiry"></span>
                         </div>
                         <div class="form-group mb-0">
                             <button type="submit" class="btn learn-more-btn send">Send</button>

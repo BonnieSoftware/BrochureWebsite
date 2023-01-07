@@ -45,34 +45,49 @@ $(function () {
         });
     }
 
-    //TODO: Replace with JS validation.
-    //$(".contact-form input, .contact-form textarea").on("blur", function () {
-    //    var url = "https://" + getApiDomainName() + "/enquiry/validate";
+    $(".contact-form input, .contact-form textarea").on("blur", function () {
+        var inputName = $(this).attr("name");
+        var dataType = $(this).attr("data-type");
+        var data = $(this).val().trim();
+        var validationMessage = $(".validation-for-" + inputName);
 
-    //    var inputName = $(this).attr("name").toLowerCase();
+        validationMessage.empty();
 
-    //    $.ajax({
-    //        type: "POST",
-    //        url: url,
-    //        contentType: "application/json",
-    //        data: getFormData(),
-    //        success: function (data) {
-    //            $(".validation-for-" + inputName).empty();
-    //        },
-    //        error: function (xhr, status, error) {
-    //            $(".validation-for-" + inputName).empty();
+        switch (dataType) {
+            case "free-text":
+                if (data.length > 0) {
+                    return;
+                }
+                validationMessage.append("Please provide " + validationMessage.attr("data-friendly-name") + ".");
+                break;
+            case "phone":
+                if (data.length < 1) {
+                    validationMessage.append("Please provide your phone number.");
+                    return;
+                }
 
-    //            var enquiryViewModel = JSON.parse(xhr.responseText);
+                if (!/^(((\+|00)44\d{4})|(\(?0)\d{4}\)?)\d{6}$/.test(data.replace(/\s/g, ""))) {
+                    validationMessage.append("The phone number you provided appears to be invalid. Please provide your phone number.");
+                    return;
+                }
+                
+                break;
+            case "email":
+                if (data.trim().length < 1) {
+                    validationMessage.append("Please provide your email address.");
+                    return;
+                }
 
-    //            for (var key in enquiryViewModel.errors) {
-    //                if (key.toLowerCase() != inputName) continue;
-    //                for (var error in enquiryViewModel.errors[key]) {
-    //                    $(".validation-for-" + inputName).append(enquiryViewModel.errors[key][error] + " ");
-    //                }
-    //            }
-    //        }
-    //    });
-    //});
+                if (!/[^@]+@[^@]+$/.test(data)) {
+                    validationMessage.append("The email address you provided appears to be invalid. Please provide your email address.");
+                    return;
+                }
+
+                break;
+            default:
+                // Do nothing.
+        }
+    });
 
     if (window.location.hash) {
         var hash = window.location.hash.substring(1);
@@ -97,9 +112,11 @@ $(function () {
 
         if ($(this).hasClass("disabled")) return;
 
+        // Trigger validation on fields before allowing post...
+        $(".contact-form input, .contact-form textarea").blur();
+
         // If there are errors do nothing.
         if ($(".validation-message:not(:empty)").length > 0) {
-            console.log("form has errors");
             return;
         }
 
@@ -111,9 +128,9 @@ $(function () {
 
     function getQueryStringVariable(variable) {
         var query = window.location.search.substring(1);
-        var vars = query.split('&');
+        var vars = query.split("&");
         for (var i = 0; i < vars.length; i++) {
-            var pair = vars[i].split('=');
+            var pair = vars[i].split("=");
             if (decodeURIComponent(pair[0]) == variable) {
                 return decodeURIComponent(pair[1]);
             }
