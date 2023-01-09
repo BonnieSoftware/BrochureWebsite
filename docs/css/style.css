@@ -1217,8 +1217,9 @@ form.contact-form {
         padding-top: 20%;
         background-size: 200%;
     }
-    .footer-section{
-        background-size: 200%;
+    .footer-section {
+        background: #003379;
+        padding: 0;
     }
     
     .blog-details {
