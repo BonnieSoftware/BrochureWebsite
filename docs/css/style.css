@@ -1217,12 +1217,16 @@ form.contact-form {
         padding-top: 20%;
         background-size: 200%;
     }
+
     .footer-section {
         background: #003379;
+    }
+
+    .footer-container {
         padding-left: 0;
         padding-right: 0;
     }
-    
+
     .blog-details {
         margin-bottom: 30px;
     }
