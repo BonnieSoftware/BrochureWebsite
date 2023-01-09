@@ -1271,4 +1271,16 @@ form.contact-form {
     .header-title-text {
         font-size: 18px
     }
+
+    .about-title {
+        font-size: 28px
+    }
+
+    .testimonials-slider-title {
+        font-size: 28px
+    }
+
+    .pricing-title {
+        font-size: 28px
+    }
 }
